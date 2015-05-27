@@ -37,7 +37,6 @@
 	border: none;
 	border-radius: 0;
 	background: #f0f0f0;
-	color: #aaa;
 	font-weight: 400;
 	font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	-webkit-appearance: none; /* for box shadows to show on iOS */
@@ -94,7 +93,6 @@
 	margin-top: 1.2em;
 	width: 100%;
 	background: transparent;
-	color: #fff;
 	font-size: 1.55em;
 }
 
