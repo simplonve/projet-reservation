@@ -1,34 +1,80 @@
-<% @m.each do |key,value| %>
-  <% i = 1; j = 1; k = 1 %>
-  <%= value[0] %>
-  </br>
-  <% @d.each do |d| %>
-    <%= d %>
+<body>
+<div class="container">
+  <% @m.each do |key,value| %>
+    <div class="row">  
+          <div class="nom_mois">
+            <%= value[0] %>
+          </div>
+      <div class="calendrier">
+        <div class="mois">
+        
+          <% i = 1; j = 1; k = 1 %>
+        
+
+          <div class="semaine">
+            <% @d.each do |d| %>
+              <div class="jour">
+                <%= d %>
+              </div>
+            <% end %>
+          </div>
+
+        
+          <% while i < value[2] %>
+            <% if j == 1 %>
+              <div class="semaine">
+            <% end %>
+            <div class="jour">
+             
+            </div>
+            <% i += 1; j += 1 %>
+          <% end %>
+
+        
+          <% while k <= value[1] %>
+            
+            <% if j == 1 || j % 7 == 1 %>
+              <div class="semaine">
+            <% end %>
+            
+            <div class="jour">
+              <a href="/reservation/">
+                <%= k %>
+              </a>
+            </div>
+            
+            <% if j % 7 == 0 %>
+              </div>
+            <% end %>
+            
+            <% j += 1; k += 1 %>
+          
+          <% end %>
+
+          <% while j % 7 != 1 %>
+            <div class="jour">
+              
+            </div>
+            <% j += 1 %>
+          <% end %>
+        
+          </div>
+        
+        </div>
+      </div>
+      <div class="texte">
+        <% @intervenant.each do |i| %>
+
+          <%= i.date %>
+          <%= i.nom %>
+          <%= i.prenom %>
+          <%= i.email %>
+          <%= i.telephone %>
+          <%= i.description %>
+     
+        <% end %>
+      </div>
+    </div>
   <% end %>
-  </br>
-  <% while i < value[2] %>
-    -
-    <% i += 1; j += 1 %>
-  <% end %>
-  <% while k <= value[1] %>
-    <a href="/reservation"><%= k %></a>
-    <% j += 1; k += 1 %>
-    <% if j % 7 == 1 %>
-      </br>
-    <% end %>
-  <% end %>
-  </br></br>
-<% end %>
-
-
-<% @intervenant.each do |i| %>
-
-  <%= i.date %>
-  <%= i.nom %>
-  <%= i.prenom %>
-  <%= i.email %>
-  <%= i.telephone %>
-  <%= i.description %>
-  </br>
-<% end %>
-
+</div>
+</body>
