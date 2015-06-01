@@ -8,8 +8,8 @@
 	
 	<title><%= @title %></title>
 	
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/reservation.css"/>
+	<link rel="stylesheet" href="<%= url('css/bootstrap.min.css') %>"/>
+	<link rel="stylesheet" href="<%= url('css/reservation.css') %>"/>
 
 	</head>
 	
@@ -17,7 +17,7 @@
 	
 		<%= yield %>
 
-		<script src="js/jquery.js"></script>
-		<script src="js/reservation.js"></script>
+		<script src="<%= url('js/jquery.js') %>"></script>
+		<script src="<%= url('js/reservation.js') %>"></script>
 	</body>
 </html>

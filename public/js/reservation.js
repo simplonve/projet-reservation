@@ -13,4 +13,8 @@ $(document).ready(function() {
 			$(this).next().removeClass('filled');
 		}
 	});
+
+	if ( $('.date').val() != "" ) {
+		$('.date').blur();
+	}
 })
