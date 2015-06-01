@@ -1,6 +1,7 @@
 <div class="background"></div>
 
 <div class="container">
+
   <% @m.each do |key,value| %>
     <div class="row">  
           <div class="nom_mois">
@@ -19,7 +20,7 @@
             <% end %>
           </div>
 
-          <% while i < value[2] %>
+          <% while i < value[3] %>
             <% if j == 1 %>
               <div class="semaine">
             <% end %>
@@ -29,7 +30,7 @@
           <% end %>
 
           
-          <% while k <= value[1] %>
+          <% while k <= value[2] %>
             
             <% if j == 1 || j % 7 == 1 %>
               <div class="semaine">
@@ -62,15 +63,15 @@
       </div>
       <div class="texte">
         <% @intervenant.each do |i| %>
-
-          <%= i.date.strftime("%e %B %Y") %>
-          <%= i.nom %>
-          <%= i.prenom %>
-          <%= i.email %>
-          <%= i.telephone %>
-          <%= i.description %>
-          </br>
-     
+          <% if i.date.strftime("%B") == value[1] %>
+            <%= i.date.strftime("%e %B %Y").gsub(value[1], value[0]) %>
+            <%= i.nom %>
+            <%= i.prenom %>
+            <%= i.email %>
+            <%= i.telephone %>
+            <%= i.description %>
+            </br>
+          <% end %>
         <% end %>
       </div>
     </div>
