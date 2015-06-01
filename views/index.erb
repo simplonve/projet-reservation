@@ -46,10 +46,15 @@
       <% j += 1; k += 1 %>
     
     <% end %>
-    
-    <% if j % 7 != 1 %>
-        </div>
+
+    <% while j % 7 != 1 %>
+      <div class="jour">
+        -
+      </div>
+      <% j += 1 %>
     <% end %>
+    
+    </div>
     
   <% end %>
 </div>
