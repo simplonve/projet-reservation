@@ -9,14 +9,32 @@
     font-weight: normal;
     font-style: normal;
 }
-
-body {
-	background: url(../images/test_1024.png);
-	background-attachment: fixed;
+html, body {
+	width: 100%;
+	height: 100%;
+}
+.background {
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	background-image: url(../images/test_1024.png);
 	background-size: cover;
 }
 
-
+.container {
+	display: block;
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 100%;
+	padding: 5%;
+	overflow: auto;
+}
 .mois {
 	float:left;
 	text-align: center;
