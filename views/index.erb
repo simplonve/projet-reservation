@@ -1,70 +1,83 @@
 <div class="background"></div>
 
 <div class="container">
-
-  <% @m.each do |key,value| %>
+  <% @month.each do |key,list| %>
     <div class="row">  
-          <div class="nom_mois">
-            <%= value[0] %>
-          </div>
+          
+      <div class="nom_mois">
+        <%= list[0] %>
+      </div>
+      
       <div class="calendrier">
         <div class="mois">
-        
-          <% i = 1; j = 1; k = 1 %>
+    
+          <% a = 1; b = 1; c = 1 %>
 
           <div class="semaine">
-            <% @d.each do |d| %>
+            <% @day.each do |day| %>
               <div class="jour">
-                <%= d %>
+                <%= day %>
               </div>
             <% end %>
           </div>
 
-          <% while i < value[3] %>
-            <% if j == 1 %>
+          <% while a < list[3] %>
+            <% if b == 1 %>
               <div class="semaine">
             <% end %>
             <div class="jour">
             </div>
-            <% i += 1; j += 1 %>
+            <% a += 1; b += 1 %>
           <% end %>
 
-          
-          <% while k <= value[2] %>
+      
+          <% while c <= list[2] %>
             
-            <% if j == 1 || j % 7 == 1 %>
+            <% if b == 1 || b % 7 == 1 %>
               <div class="semaine">
             <% end %>
+        
+            <% l = sprintf '%02d', c %>
+            <% @date = [] %>
+            <% @intervenant.each do |idate| %>
+                <% @date << idate.date.strftime("%d-%m") %>
+            <% end %>
             
-            <div class="jour">
-              <% l = sprintf '%02d', k %>
-              <a href="/reservation/<%= l %>-<%= key %>">
-                <%= k %>
-              </a>
-            </div>
-            
-            <% if j % 7 == 0 %>
+            <% if @date.include?("#{l}-#{key}") %>
+                <div class="jour indispo">
+                  <%= c %>
+                </div>
+            <% else %>
+              <div class="jour dispo">
+                <a href="/reservation/<%= l %>-<%= key %>">
+                  <%= c %>
+                </a>
               </div>
             <% end %>
             
-            <% j += 1; k += 1 %>
+            <% if b % 7 == 0 %>
+              </div>
+            <% end %>
+            
+            <% b += 1; c += 1 %>
           
           <% end %>
 
-          <% while j % 7 != 1 %>
+          <% while b % 7 != 1 %>
             <div class="jour">
               
             </div>
-            <% j += 1 %>
+            <% b += 1 %>
           <% end %>
-        
+    
           </div>
         </div>
       </div>
+
       <div class="texte">
         <% @intervenant.each do |i| %>
-          <% if i.date.strftime("%B") == value[1] %>
-            <%= i.date.strftime("%e %B %Y").gsub(value[1], value[0]) %>
+          <% if i.date.strftime("%B") == list[1] %>
+            <%= i.date.strftime("%e %B %Y").gsub(list[1], list[0]) %>
             <%= i.nom %>
             <%= i.prenom %>
             <%= i.email %>
@@ -74,6 +87,7 @@
           <% end %>
         <% end %>
       </div>
+
     </div>
   <% end %>
 </div>
