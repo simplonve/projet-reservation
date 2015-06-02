@@ -13,7 +13,7 @@
     
           <% a = 1; b = 1; c = 1 %>
 
-          <div class="semaine">
+          <div class="nom_jour">
             <% @day.each do |day| %>
               <div class="jour">
                 <%= day %>
@@ -47,6 +47,10 @@
                 <div class="jour indispo">
                   <%= c %>
                 </div>
+            <% elsif b % 7 == 6 || b % 7 == 0 %>
+                 <div class="jour weekend">
+                  <%= c %>
+                </div>
             <% else %>
               <div class="jour dispo">
                 <a href="/reservation/<%= l %>-<%= key %>">
@@ -77,13 +81,18 @@
       <div class="texte">
         <% @intervenant.each do |i| %>
           <% if i.date.strftime("%B") == list[1] %>
-            <%= i.date.strftime("%e %B %Y").gsub(list[1], list[0]) %>
-            <%= i.nom %>
-            <%= i.prenom %>
-            <%= i.email %>
-            <%= i.telephone %>
-            <%= i.description %>
-            </br>
+            <div class="info">
+              <div class="date">
+                <%= i.date.strftime("%e %B %Y").gsub(list[1], list[0]) %>
+              </div>
+              <div class="coordonnees">
+                <%= i.nom %>
+                <%= i.prenom %>
+                <%= i.email %>
+                <%= i.telephone %>
+                <%= i.description %>
+              </div>
+            </div>
           <% end %>
         <% end %>
       </div>

@@ -239,24 +239,26 @@
 	background: #34495e;
 	-webkit-border-radius: 13;
 	-moz-border-radius: 13;
-	border-radius: 13px;
+	border-radius: 15px;
 	font-family: Arial;
 	color: #ffffff;
 	font-size: 20px;
 	padding: 10px 20px 10px 20px;
 	text-decoration: none;
+	border: none;
 }
 
 .resa-btn-annule {
 	background: #34495e;
 	-webkit-border-radius: 13;
 	-moz-border-radius: 13;
-	border-radius: 13px;
+	border-radius: 15px;
 	font-family: Arial;
 	color: #ffffff;
 	font-size: 20px;
-	padding: 10px 20px 10px 20px;
+	padding: 13px 20px 13px 20px;
 	text-decoration: none;
+	line-height: 48px;
 }
 
 .resa-btn-valid:hover {

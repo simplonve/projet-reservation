@@ -1,11 +1,20 @@
+require 'pry'
 require 'sinatra'
 require 'sinatra/activerecord'
-require 'pry'
+require 'sinatra/flash'
+require 'sinatra/redirect_with_flash'
 require './environments'
+
+enable :sessions
 
 ActiveRecord::Base.default_timezone = :local
 
 class Intervenant < ActiveRecord::Base
+  validates :nom, presence: true
+  validates :prenom, presence: true
+  validates :email, presence: true
+  validates :telephone, presence: true
+  validates :date, presence: true
 end
 
 get "/" do
@@ -17,8 +26,8 @@ get "/" do
 end
 
 get "/reservation" do
-	@title = "Formulaire"
-	erb :reservation
+  @title = "Formulaire"
+  erb :reservation
 end
 
 get "/reservation/:day-:month" do
@@ -28,10 +37,13 @@ get "/reservation/:day-:month" do
 end
 
 post "/reservation" do
-	params[:description] = params[:description].gsub(/[<>]/, '')
-	params[:resa]["description"] = params[:description]
-	@intervenant = Intervenant.new(params[:resa])
-	@intervenant.save
-	redirect "/"
+  params[:description] = params[:description].gsub(/[<>]/, '')
+  params[:resa]["description"] = params[:description]
+  @intervenant = Intervenant.new(params[:resa])
+  if @intervenant.save
+    redirect "/"
+  else
+    redirect back, :error => "Veuillez remplir les champs obligatoires (*)."
+  end
 end
 

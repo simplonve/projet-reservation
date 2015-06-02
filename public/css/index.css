@@ -1,14 +1,15 @@
-@font-face
-{
-    font-family: 'Jura';
-    src: url('fonts/Jura-DemiBold.eot');
-    src: url('fonts/Jura-DemiBold.eot?#iefix') format('embedded-opentype'),
-         url('fonts/Jura-DemiBold.woff') format('woff'),
-         url('fonts/Jura-DemiBold.ttf') format('truetype'),
-         url('fonts/Jura-DemiBold.svg#Jura') format('svg');
+@font-face {
+    font-family: 'museo';
+    src: url('../fonts/museo/Museo500-Regular-webfont.eot');
+    src: url('../fonts/museo/Museo500-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/museo/Museo500-Regular-webfont.woff2') format('woff2'),
+         url('../fonts/museo/Museo500-Regular-webfont.woff') format('woff'),
+         url('../fonts/museo/Museo500-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/museo/Museo500-Regular-webfont.svg#museo500') format('svg');
     font-weight: normal;
     font-style: normal;
 }
+
 html, body {
 	width: 100%;
 	height: 100%;
@@ -22,7 +23,7 @@ html, body {
 	right: 0;
 	margin: 0;
 	padding: 0;
-	background-image: url(../images/test_1024.png);
+	background-image: url(../images/gradient-background.jpg);
 	background-size: cover;
 }
 
@@ -43,7 +44,7 @@ html, body {
 }
 
 .nom_mois {
-	font-family: 'Jura';
+	color: rgba(236, 240, 241,1.0);
 	font-size: 2.5em;
 	margin-bottom: 0.5em;
 	margin-top: 5%;
@@ -57,34 +58,52 @@ html, body {
 	float:left;
 	justify-content :space-around;
 	width:100%;
-
-	
 }
 
 .semaine a{
 	width: 100%;
+	line-height: 50px;
+	color: white;
+	text-decoration: none;
 }
 
-.semaine a:hover{
-	text-decoration: none;
-	color: red;
+.nom_jour{
+	display:flex;
+	float:left;
+	justify-content :space-around;
+	width:100%;
+	border-top: solid 2px rgba(255,255,255,0.5);
+	background-color: rgba(255,255,255,0.25);
+	box-shadow: 0 4px 2px -2px rgba(0,0,0,0.5);
+	margin-bottom: 5px;
+}
+
+.nom_jour .jour {
+	width: 100%;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 1em;
 }
 
 .jour {
 	border:0.15em;
 	display:flex;
 	align-content: space-around;
-	width: 100%;
-	height:50px;
-	border-style: solid;
-	border-color: black;
+	width: 10%;
+	height: 50px;
 	justify-content: center;
 	align-items:center;
+	color: white;
+	font-weight: bold;
+	font-family: 'museo';
+	font-size: 1.25em; 
 }
 
+.dispo:hover {
+	background-color: rgba(255,255,255,0.1);
+}
 
 .calendrier {
-	width:50%;
+	width:48%;
 	float:left;
 	justify-content:space-around;
 }
@@ -92,26 +111,56 @@ html, body {
 .texte {
 	display: flex;
 	position:relative;
-	width:50%;
+	width:48%;
+	height: 300px;
 	float: left;
 	justify-content:space-around;
-
-	
-
+	overflow: auto;
+	color: rgba(236, 240, 241,1.0);
 }
 
-.container .row:nth-child(odd) .calendrier, .container .row:nth-child(odd) .texte{
+.info {
+	display: block;
 	float: left;
+	width: 100%;
 }
 
-.container .row:nth-child(even) .calendrier, .container .row:nth-child(even) .texte {
+.date {
+
+}
+
+.coordonnees {
+
+
+}
+
+.container .row:nth-child(odd) .calendrier{
+	float: left;
+	margin-right: 2%;
+}
+.container .row:nth-child(odd) .texte{
+	float: left;
+	margin-left: 2%;
+}
+
+.container .row:nth-child(even) .calendrier{
 	float: right;
+	margin-left: 2%;
+}
+
+.container .row:nth-child(even) .texte {
+	float: right;
+	margin-right: 2%;
+}
+
+.weekend {
+	border-bottom: solid 3px rgba(44, 62, 80,1.0);
 }
 
 .indispo {
-	background-color: rgba(255, 0, 0, 0.5);
+	border-bottom: solid 3px rgba(231, 76, 60,1.0);
 }
 
 .dispo {
-	background-color: rgba(0, 255, 0, 0.5);
+	border-bottom: solid 3px rgba(46, 204, 113,1.0);
 }

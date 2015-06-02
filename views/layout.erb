@@ -15,7 +15,10 @@
 	</head>
 	
 	<body>
-	
+		<% if flash[:error] %>
+			<div class="alert alert-error"><i class="fa fa-times"></i> <%= flash[:error] %></div>
+		<% end %>
+
 		<%= yield %>
 
 		<script src="<%= url('js/jquery.js') %>"></script>
