@@ -78,7 +78,7 @@
 			</div>
 			<div class="form-button">
 				<a class="resa-btn-cancel" href="/">Annuler</a>
-				<a class="resa-btn-valid" onclick="document.getElementById('form_resa').submit();">Valider</a>
+				<a class="resa-btn-valid" id="resa-submit" onclick="document.getElementById('form_resa').submit(); document.getElementById('resa-submit').removeAttribute('onclick');">Valider</a>
 			</div>
 		</form>
 	</div>
