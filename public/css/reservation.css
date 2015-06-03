@@ -1,5 +1,32 @@
+@media screen and (max-width: 768px) {
+  .form-button {
+	  display: flex;
+	  width: 100%;
+	  margin: 2% auto;
+	  justify-content: space-around;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.form-button {
+	  display: flex;
+	  width: 33%;
+	  margin: 2% auto;
+	  justify-content: space-around;
+	}
+}
+
 .resa-background {
-	background-color: rgba(250, 245, 170, 0.25);
+	background-image: url(../images/gradient-background.jpg);
+	background-size: cover;
+}
+
+.container-fluid {
+  min-height: 100%;
+}
+
+h1 {
+	color: white;
 }
 
 .space-textarea {
@@ -30,6 +57,7 @@
 	display: block;
 	float: right;
 	padding: 0.8em;
+	color: rgba(236, 240, 241,1.0);
 	width: 60%;
 	height: 2em;
 	border: none;
@@ -51,7 +79,7 @@
 	width: 40%;
 	color: #696969;
 	font-weight: bold;
-	font-size: 70.25%;
+	font-size: 69%;
 	-webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 	-webkit-touch-callout: none;
@@ -104,10 +132,11 @@
 	width: 100%;
 	text-align: left;
 	padding: 0em;
+	padding-left: 1%;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: #35496C;
-	background: #f0f0f0;
+	color: rgba(236, 240, 241,1.0);
+	background: rgba(255,255,255,0.15);
 	pointer-events: none;
 	-webkit-transform-origin: 0 0;
 	transform-origin: 0 0;
@@ -118,7 +147,7 @@
 }
 
 .graphic--resa {
-	stroke: #0235FF;
+	stroke: rgba(236, 240, 241,0.75);
 	pointer-events: none;
 	stroke-width: 2px;
 	top: 1.25em;
@@ -131,14 +160,14 @@
 } 
 
 .input__field--resa:focus + .input__label--resa, .filled {
-	color: #35496C;
+	color: rgba(236, 240, 241,1.0);
 	background: transparent;
 	-webkit-transform: translate3d(0, -2.75em, 0) scale3d(0.95, 0.95, 1);
 	transform: translate3d(0, -2.75em, 0) scale3d(0.95, 0.95, 1);
 }
 
 .input__field--resa:focus ~ .graphic--resa {
-	stroke: #0235FF;
+	stroke: rgba(236, 240, 241,0.75);
 	-webkit-transform: translate3d(-66.6%, 0, 0);
 	transform: translate3d(-66.6%, 0, 0);
 }
@@ -147,6 +176,7 @@
 	position: relative;
 	display: block;
 	float: right;
+	color: rgba(236, 240, 241,1.0);
 	margin-top: 1em;
 	padding: 0;
 	width: 100%;
@@ -188,11 +218,12 @@
 	width: 100%;
 	text-align: left;
 	padding: 0em;
+	padding-left: 1%;
 	padding-bottom: 12em;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color: #35496C;
-	background: #f0f0f0;
+	color: rgba(236, 240, 241,1.0);
+	background: rgba(255,255,255,0.15);
 	pointer-events: none;
 	-webkit-transform-origin: 0 0;
 	transform-origin: 0 0;
@@ -210,20 +241,19 @@
 }
 
 .textarea:focus + .textarea__label--resa, .filled {
-	color: #35496C;
 	background: transparent;
 	-webkit-transform: translate3d(0, -2.75em, 0) scale3d(0.95, 0.95, 1);
 	transform: translate3d(0, -2.75em, 0) scale3d(0.95, 0.95, 1);
 }
 
 .textarea:focus ~ .graphic2--resa {
-	stroke: #0235FF;
+	stroke: rgba(236, 240, 241,0.75);
 	-webkit-transform: translate3d(-66.6%, 0, 0);
 	transform: translate3d(-66.6%, 0, 0);
 }
 
 .graphic2--resa {
-	stroke: #0235FF;
+	stroke: rgba(236, 240, 241,0.75);
 	pointer-events: none;
 	stroke-width: 0.66px;
 	top: 1.25em;
@@ -235,35 +265,16 @@
 	transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
 }
 
-.resa-btn-valid {
-	background: #34495e;
-	-webkit-border-radius: 13;
-	-moz-border-radius: 13;
-	border-radius: 13px;
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 20px;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-}
 
-.resa-btn-cancel {
-	background: #34495e;
-	-webkit-border-radius: 13;
-	-moz-border-radius: 13;
-	border-radius: 13px;
-	font-family: Arial;
-	color: #ffffff;
-	font-size: 20px;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-}
-
-.form-button {
-  display: flex;
-  width: 33%;
-  margin: 2% auto;
-  justify-content: space-around;
+.resa-btn-cancel, .resa-btn-valid {
+  background: transparent;
+  border: solid 2px rgba(236, 240, 241,0.75);
+  font-family: Arial;
+  color: #ffffff;
+  background-color: rgba(255,255,255,0.15);
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
 }
 
 .resa-btn-valid:hover {
@@ -277,4 +288,16 @@
 	background: #e74c3c;
 	text-decoration: none;
 	color: #fff;
+}
+
+.alert-error {
+	position: relative;
+	float: left;
+	width: 100%;
+	z-index: 10;
+	color: rgba(231, 76, 60,1.0);
+	background-color: white;
+	font-weight: bold;
+	border-radius: 0;
+	box-shadow: 0 4px 2px -2px rgba(0,0,0,0.5); 
 }

@@ -110,6 +110,7 @@ html, body {
 
 .texte {
 	display: flex;
+	flex-direction: column;
 	position:relative;
 	width:48%;
 	height: 300px;
