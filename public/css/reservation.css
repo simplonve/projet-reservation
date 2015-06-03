@@ -239,34 +239,42 @@
 	background: #34495e;
 	-webkit-border-radius: 13;
 	-moz-border-radius: 13;
-	border-radius: 15px;
+	border-radius: 13px;
 	font-family: Arial;
 	color: #ffffff;
 	font-size: 20px;
 	padding: 10px 20px 10px 20px;
 	text-decoration: none;
-	border: none;
 }
 
-.resa-btn-annule {
+.resa-btn-cancel {
 	background: #34495e;
 	-webkit-border-radius: 13;
 	-moz-border-radius: 13;
-	border-radius: 15px;
+	border-radius: 13px;
 	font-family: Arial;
 	color: #ffffff;
 	font-size: 20px;
-	padding: 13px 20px 13px 20px;
+	padding: 10px 20px 10px 20px;
 	text-decoration: none;
-	line-height: 48px;
+}
+
+.form-button {
+  display: flex;
+  width: 33%;
+  margin: 2% auto;
+  justify-content: space-around;
 }
 
 .resa-btn-valid:hover {
 	background: #2ecc71;
 	text-decoration: none;
+	cursor: pointer;
+	color: #fff;
 }
 
-.resa-btn-annule:hover {
+.resa-btn-cancel:hover {
 	background: #e74c3c;
 	text-decoration: none;
+	color: #fff;
 }

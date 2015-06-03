@@ -43,7 +43,7 @@ post "/reservation" do
   if @intervenant.save
     redirect "/"
   else
-    redirect back, :error => "Veuillez remplir les champs obligatoires (*)."
+    redirect back, :error => "Veuillez remplir tous les champs du formulaire."
   end
 end
 
