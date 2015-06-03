@@ -1,6 +1,6 @@
 <div class="background"></div>
-
 <div class="container">
+<h1 class="text-center">Réservez la date de votre intervention à Simplon.VE</h1>
   <% @month.each do |key,list| %>
     <div class="row">  
           
@@ -45,6 +45,10 @@
             
             <% if @date.include?("#{l}-#{key}") %>
                 <div class="jour indispo">
+                  <%= c %>
+                </div>
+            <% elsif key == "08" && c < 17 %>
+                <div class="jour weekend">
                   <%= c %>
                 </div>
             <% elsif b % 7 == 6 %>
