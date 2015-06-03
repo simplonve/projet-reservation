@@ -20,8 +20,8 @@ end
 get "/" do
   @month = {"06"=>["Juin", "June", 30, 1], "07"=>["Juillet", "July", 31, 3], "08"=>["Août", "August", 31, 6], "09"=>["Septembre", "September", 30, 2], "10"=>["Octobre", "October", 31, 4]}
   @day = ["Lundi", "Mardi", "Mercredi" , "Jeudi", "Vendredi", "Samedi", "Dimanche"]
-  @intervenant = Intervenant.all
-  @title = "Intervenants"
+  @intervenant = Intervenant.all.order("date")
+  @title = "Calendriers"
   erb :index
 end
 

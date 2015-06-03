@@ -47,7 +47,13 @@
                 <div class="jour indispo">
                   <%= c %>
                 </div>
-            <% elsif b % 7 == 6 || b % 7 == 0 %>
+            <% elsif b % 7 == 6 %>
+                <div class="jour weekend">
+                  <a href="/reservation/<%= l %>-<%= key %>">
+                    <%= c %>
+                  </a>
+                </div>
+            <% elsif b % 7 == 0 %>
                  <div class="jour weekend">
                   <%= c %>
                 </div>
@@ -83,13 +89,17 @@
           <% if i.date.strftime("%B") == list[1] %>
             <div class="info">
               <div class="date">
-                <%= i.date.strftime("%e %B %Y").gsub(list[1], list[0]) %>
+                <%= i.date.strftime("%e %B %Y").gsub(list[1], list[0]) %>: 
               </div>
-              <div class="coordonnees">
+              <div class="nom">
                 <%= i.nom %>
                 <%= i.prenom %>
-                <%= i.email %>
-                <%= i.telephone %>
+              </div>
+              <div class="contact">
+                Email: <%= i.email %>, 
+                Tel: <%= i.telephone %>
+              </div>
+              <div class="desc">
                 <%= i.description %>
               </div>
             </div>
